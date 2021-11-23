@@ -1,31 +1,41 @@
+<script>
+import MoneyCounter from './components/MoneyCounter.vue'
+import ImageCard from './containers/ImageCard.vue'
+import ShoppingItems from './containers/ShoppingItems.vue'
+import VHeader from './containers/VHeader.vue'
+export default {
+  components: { VHeader, ImageCard, MoneyCounter, ShoppingItems },
+}
+</script>
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <main class="main" id="app">
+    <v-header />
+    <div class="main__container">
+      <image-card />
+      <money-counter />
+      <shopping-items />
     </div>
-    <router-view />
-  </div>
+  </main>
 </template>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+.main {
+  background-color: $color-light-gray;
+  width: 100%;
 
-#nav {
-  padding: 30px;
+  .v-header {
+    margin-bottom: 1.56em;
+  }
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+  &__container {
+    width: 100%;
+    max-width: $width-container;
+    margin: 0 auto;
 
-    &.router-link-exact-active {
-      color: #42b983;
+    .money-counter {
+      margin: $gap-10 0;
+      position: sticky;
+      z-index: 9999;
     }
   }
 }
