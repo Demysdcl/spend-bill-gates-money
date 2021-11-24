@@ -65,8 +65,8 @@ export const products = [
   { name: 'Mansion', img: 'mansion', price: 45000000, qty: 0 },
   { name: 'Make a Movie', img: 'make-a-movie', price: 100000000, qty: 0 },
   { name: 'Boeing 747', img: 'boeing-747', price: 148000000, qty: 0 },
-  { name: 'Mona Lisa', img: 'mona-lisa', price: 780000000, qty: 0 },
+  { name: 'Mona Lisa', img: 'mona-lisa', price: 780000000, qty: 0, limit: 1 },
   { name: 'Skyscraper', img: 'skyscraper', price: 850000000, qty: 0 },
   { name: 'Cruise Ship', img: 'cruise-ship', price: 930000000, qty: 0 },
-  { name: 'NBA Team', img: 'nba-team', price: 2120000000, qty: 0 },
+  { name: 'NBA Team', img: 'nba-team', price: 2120000000, qty: 0, limit: 30 },
 ]

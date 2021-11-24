@@ -1,18 +1,30 @@
 <script>
 import ItemCard from './ItemCard.vue'
-import { products } from '@/data'
+import { mapActions, mapState } from 'vuex'
+
 export default {
   components: { ItemCard },
-  data: () => ({
-    products: products,
-  }),
+  data: () => ({ internalProducts: [] }),
+  computed: {
+    ...mapState(['products']),
+  },
+  mounted() {
+    this.internalProducts = JSON.parse(JSON.stringify(this.products))
+  },
+  methods: {
+    ...mapActions(['updateBudget']),
+    handleProductUpdate() {
+      this.updateBudget(this.internalProducts)
+    },
+  },
 }
 </script>
 
 <template>
   <div class="shopping-items">
     <item-card
-      v-for="product in products"
+      @updateProduct="handleProductUpdate"
+      v-for="product in internalProducts"
       :key="product.name"
       :product="product"
     />

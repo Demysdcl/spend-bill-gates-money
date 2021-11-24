@@ -1,10 +1,22 @@
 <script>
-export default {}
+import { mapState } from 'vuex'
+import { numberWithCommas } from '@/utils/formatter'
+export default {
+  computed: {
+    ...mapState(['budget']),
+  },
+
+  methods: {
+    format() {
+      return numberWithCommas(this.budget)
+    },
+  },
+}
 </script>
 
 <template>
   <div class="money-counter">
-    <h1>$100,000,000,000</h1>
+    <h1 class="money-counter__value">${{ format() }}</h1>
   </div>
 </template>
 
@@ -14,5 +26,9 @@ export default {}
   text-align: center;
   color: $color-white;
   background: linear-gradient(180deg, $color-green, $color-dark-green);
+
+  &__value {
+    font-weight: 700;
+  }
 }
 </style>

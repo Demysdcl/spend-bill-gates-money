@@ -1,9 +1,9 @@
 <script>
-import constants from '@/constants'
+import { BASE_URL_IMG } from '@/utils/constants'
 export default {
   computed: {
     imageURL() {
-      return `${constants.BASE_URL_IMG}/billgates.jpg`
+      return `${BASE_URL_IMG}/billgates.jpg`
     },
   },
 }

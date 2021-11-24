@@ -36,6 +36,7 @@ export default {
   font-weight: 700;
   font-size: $font-16;
   border: none;
+  cursor: pointer;
 
   &--primary {
     background: linear-gradient(180deg, $color-green, $color-dark-green);
@@ -46,6 +47,7 @@ export default {
   }
 
   &--disabled {
+    cursor: normal;
     background-color: $color-light-gray;
     color: $color-black;
   }

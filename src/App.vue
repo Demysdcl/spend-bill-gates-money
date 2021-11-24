@@ -1,10 +1,11 @@
 <script>
 import MoneyCounter from './components/MoneyCounter.vue'
 import ImageCard from './containers/ImageCard.vue'
-import ShoppingItems from './containers/ShoppingItems.vue'
+import ShoppingItems from './containers/shopping-items/ShoppingItems.vue'
 import VHeader from './containers/VHeader.vue'
+import YourReceipt from './containers/receipts/YourReceipt.vue'
 export default {
-  components: { VHeader, ImageCard, MoneyCounter, ShoppingItems },
+  components: { VHeader, ImageCard, MoneyCounter, ShoppingItems, YourReceipt },
 }
 </script>
 <template>
@@ -14,6 +15,7 @@ export default {
       <image-card />
       <money-counter />
       <shopping-items />
+      <your-receipt />
     </div>
   </main>
 </template>
@@ -35,6 +37,7 @@ export default {
     .money-counter {
       margin: $gap-10 0;
       position: sticky;
+      top: 0;
       z-index: 9999;
     }
   }
