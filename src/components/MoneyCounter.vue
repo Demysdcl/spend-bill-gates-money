@@ -2,13 +2,24 @@
 import { mapState } from 'vuex'
 import { numberWithCommas } from '@/utils/formatter'
 export default {
+  data: () => ({ to: 0, from: 0 }),
   computed: {
     ...mapState(['budget']),
   },
-
+  watch: {
+    budget(newValue, oldValue) {
+      this.from = oldValue
+      this.to = newValue
+    },
+  },
+  mounted() {
+    this.from = this.budget
+    this.to = this.budget
+    this.pauseAnimation = false
+  },
   methods: {
-    format() {
-      return numberWithCommas(this.budget)
+    format(number) {
+      return numberWithCommas(Math.floor(number))
     },
   },
 }
@@ -16,7 +27,16 @@ export default {
 
 <template>
   <div class="money-counter">
-    <h1 class="money-counter__value">${{ format() }}</h1>
+    <h1 class="money-counter__value">
+      $<number
+        ref="number1"
+        :from="from"
+        :to="to"
+        :format="format"
+        :duration="5"
+        easing="Power1.easeOut"
+      />
+    </h1>
   </div>
 </template>
 
